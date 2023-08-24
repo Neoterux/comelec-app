@@ -9,7 +9,6 @@ class CashDrawerPage extends StatelessWidget {
     return const Scaffold(
       appBar: AppBarWidget(
         title: "Cash Drawer Page",
-        backgroundColor: Colors.white,
         actions: [
           IconButton(
             onPressed: null,

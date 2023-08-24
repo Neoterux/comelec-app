@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
-  final Color? backgroundColor;
   final String? title;
   final Widget? leading;
   final List<Widget>? actions;
@@ -13,7 +12,6 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
     this.actions,
     this.leading,
     this.shape,
-    this.backgroundColor,
   }) : super(key: key);
 
   @override
@@ -29,7 +27,7 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
         ),
       ),
       centerTitle: true,
-      backgroundColor: backgroundColor,
+      backgroundColor: Colors.white,
       actions: actions,
       elevation: 0.4,
     );

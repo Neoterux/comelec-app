@@ -1,5 +1,7 @@
 import 'package:comelec/common/widgets/app_bar.dart';
+import 'package:comelec/menu/pages/credit_cards_page.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class MenuPage extends StatelessWidget {
   const MenuPage({super.key});
@@ -8,7 +10,6 @@ class MenuPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const AppBarWidget(
-        backgroundColor: Colors.white,
         title: "Menu Page",
         actions: [
           IconButton(
@@ -43,7 +44,10 @@ class MenuPage extends StatelessWidget {
                 leading: Icon(Icons.credit_card),
                 title: Text("Credit Cards"),
                 trailing: Icon(Icons.arrow_forward_ios_rounded),
-                onTap: () => print("onTap"),
+                onTap: () => Get.to(
+                  () => CreditCardPage(),
+                  transition: Transition.downToUp,
+                ),
               ),
             ],
           ).toList(),
