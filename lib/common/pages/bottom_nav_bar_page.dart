@@ -1,4 +1,5 @@
 import 'package:comelec/menu/menu_page.dart';
+import 'package:comelec/menu/pages/shopping_cart_page.dart';
 import 'package:flutter/material.dart';
 
 import 'package:comelec/cash_drawer/cash_drawer_page.dart';
