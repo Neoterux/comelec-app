@@ -1,5 +1,6 @@
 import 'package:comelec/common/widgets/app_bar.dart';
 import 'package:comelec/menu/pages/credit_cards_page.dart';
+import 'package:comelec/menu/pages/products_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -38,7 +39,10 @@ class MenuPage extends StatelessWidget {
                 leading: Icon(Icons.production_quantity_limits),
                 title: Text("Products"),
                 trailing: Icon(Icons.arrow_forward_ios_rounded),
-                onTap: () => print("onTap"),
+                onTap: () => Get.to(
+                      () => ProductsPage(),
+                  transition: Transition.downToUp,
+                ),
               ),
               ListTile(
                 leading: Icon(Icons.credit_card),
