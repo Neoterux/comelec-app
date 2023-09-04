@@ -4,12 +4,22 @@ import 'package:get/get.dart';
 class CreditCardWidget extends StatelessWidget {
   final String bin;
   final String name;
-  final String ccType;
+  final int ccType;
+  final Function onDelete;
+  static const List<String> ccTypes = [
+    "visa",
+    "mastercard",
+    "diners-club",
+    "american-express",
+    "discover"
+  ];
+
   const CreditCardWidget({
     super.key,
     required this.bin,
     required this.name,
     required this.ccType,
+    required this.onDelete,
   });
 
   @override
@@ -18,16 +28,17 @@ class CreditCardWidget extends StatelessWidget {
       leading: SizedBox(
         width: 70,
         height: 100,
-        child: Image.asset("assets/images/$ccType.png"),
+        child: Image.asset(
+            "assets/images/${ccTypes[ccType > 4 ? 4 : ccType]}.png"),
       ),
-      title: Text("... $bin"),
+      title: Text("... ${bin.substring(0, 5)}"),
       subtitle: Text(name),
-      trailing: const IconButton(
-        icon: Icon(
+      trailing: IconButton(
+        icon: const Icon(
           Icons.delete,
           color: Colors.red,
         ),
-        onPressed: null,
+        onPressed: () => onDelete(),
       ),
     );
   }

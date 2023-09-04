@@ -1,5 +1,5 @@
 import 'package:comelec/common/widgets/app_bar.dart';
-import 'package:comelec/menu/pages/credit_cards_page.dart';
+import 'package:comelec/menu/pages/credit_card/credit_cards_page.dart';
 import 'package:comelec/menu/pages/products_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

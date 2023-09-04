@@ -18,16 +18,18 @@ class ProductCardWidget extends StatelessWidget {
       leading: SizedBox(
         width: 70,
         height: 100,
-        child: image=="" ? Image.asset("assets/images/product-placeholder.png") :
-        CachedNetworkImage(
-          imageUrl: image,
-          progressIndicatorBuilder: (context, url, downloadProgress) =>
-              CircularProgressIndicator(value: downloadProgress.progress),
-          errorWidget: (context, url, error) => Image.asset("assets/images/product-placeholder.png"),
-        ),
+        child: image == ""
+            ? Image.asset("assets/images/product-placeholder.png")
+            : CachedNetworkImage(
+                imageUrl: image,
+                progressIndicatorBuilder: (context, url, downloadProgress) =>
+                    CircularProgressIndicator(value: downloadProgress.progress),
+                errorWidget: (context, url, error) =>
+                    Image.asset("assets/images/product-placeholder.png"),
+              ),
       ),
       title: Text(name),
-      subtitle: Text("\$ "+unitPrice),
+      subtitle: Text("\$ " + unitPrice),
       trailing: const IconButton(
         icon: Icon(
           Icons.edit,
