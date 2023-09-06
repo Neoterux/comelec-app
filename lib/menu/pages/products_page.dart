@@ -49,7 +49,11 @@ class ProductsPage extends StatelessWidget {
                   itemBuilder: (context, index) => ProductCardWidget(
                     image: products[index]['image'],
                     name: products[index]['name'],
-                    unitPrice: products[index]['unit_price'],
+                    unitPrice: products[index]['unit_price'].toString(),
+                    unit: products[index]['unit'].toString(),
+                    description: products[index]['description'],
+                    active: products[index]['active'].toString(),
+                    item_id: products[index]['item_id'],
                   ),
                 ),
               );

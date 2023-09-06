@@ -16,6 +16,7 @@ class ItemBloc extends Bloc<ItemEvent, ItemState> {
     on<GetItems>(_onGetItems);
     on<CreateItem>(_onCreateItem);
     on<DeleteItem>(_onDeleteItem);
+    on<UpdateItem>(_onUpdateItem);
   }
 
   void _onGetItems(GetItems event, Emitter emit) async {
