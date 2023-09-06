@@ -37,4 +37,20 @@ class ShoppingCartRepository {
     final List shoppingCart = jsonDecode(response.body) as List;
     return shoppingCart;
   }
+
+  Future<List<dynamic>> addItemToCart(item) async {
+    final uri = Uri.http(constants.apiUrl, "${constants.shoppingCartEndpoint}/add-item");
+    final response = await http.post(
+        uri,
+        headers: {
+          HttpHeaders.contentTypeHeader: 'application/json',
+        },
+      body: jsonEncode(item)
+    );
+    if (response.statusCode != 200) {
+      throw Exception('Failed to load shopping cart');
+    }
+    final List shoppingCart = jsonDecode(response.body) as List;
+    return shoppingCart;
+  }
 }
