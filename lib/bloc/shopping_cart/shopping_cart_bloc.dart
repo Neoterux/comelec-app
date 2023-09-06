@@ -14,7 +14,8 @@ class ShoppingCartBloc extends Bloc<ShoppingCartEvent, ShoppingCartState> {
 
   ShoppingCartBloc(this._cartRepository) : super(LoadingShoppingCart()) {
     on<GetShoppingCartContent>(_onGetShoppingCartContent);
-
+    on<UpdateShoppingCart>(_onUpdateShoppingCartContent);
+    on<AddShoppingCartItem>(_onAddItemToShoppingCart);
   }
 
   void _onGetShoppingCartContent(ShoppingCartEvent event, Emitter emit) async {
@@ -31,6 +32,16 @@ class ShoppingCartBloc extends Bloc<ShoppingCartEvent, ShoppingCartState> {
     emit(LoadingShoppingCart());
     try {
       final content = await _cartRepository.updateCart(event.content);
+      emit(LoadedShoppingCart(content));
+    } catch(e) {
+      emit(ErrorShoppingCart(e.toString()));
+    }
+  }
+
+  void _onAddItemToShoppingCart(AddShoppingCartItem event, Emitter emit) async {
+    emit(LoadingShoppingCart());
+    try {
+      final content = await _cartRepository.addItemToCart({ "item_id": event.itemId, "quantity": event.quantity });
       emit(LoadedShoppingCart(content));
     } catch(e) {
       emit(ErrorShoppingCart(e.toString()));
