@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
 class ProductCardWidget extends StatelessWidget {
-  final String image;
+  final String? image;
   final String name;
   final String unitPrice;
   const ProductCardWidget({
@@ -18,10 +18,10 @@ class ProductCardWidget extends StatelessWidget {
       leading: SizedBox(
         width: 70,
         height: 100,
-        child: image == ""
+        child: image == null
             ? Image.asset("assets/images/product-placeholder.png")
             : CachedNetworkImage(
-                imageUrl: image,
+                imageUrl: image!,
                 progressIndicatorBuilder: (context, url, downloadProgress) =>
                     CircularProgressIndicator(value: downloadProgress.progress),
                 errorWidget: (context, url, error) =>
